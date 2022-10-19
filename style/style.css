@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(235, 235, 235);
+}
+
+/*Life bar*/
+.players{
+    display: flex;
+    justify-content: center;
+}
+.player, .monster{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2%;
+    width: 100%;
+}
+.player-title,.monster-title{
+    font-size: 22px;
+    font-weight: 500;
+    color: rgb(80, 80, 80);
+    letter-spacing: 1px;
+    margin-bottom: 3%;
+}
+.player-life-bar,.monster-life-bar{
+    height: 20px;
+    width: 80%;
+    border: 1px solid rgb(110, 110, 110);
+}
+.player-life,.monster-life{
+    height: 100%;
+    background-color: green;
+}
+.player-life-percent,.monster-life-percent{
+    font-size: 15px;
+    margin-top: 5px;
+}
+.danger{
+    background-color: rgb(224, 0, 0);
+}
+/*result*/
+.result{
+    border-top: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+.winner{
+    color: green;
+    font-size: 22px;
+
+}
+.loser{
+    color: red;
+    font-size: 22px;
+}
+.tied{
+    color: grey;
+    font-size: 22px;
+}
+/*buttons*/
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 1%;
+}
+.attack,.attack-special,.heal,.give-up,.initialize{
+    padding: 5px 15px 5px 15px;
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.attack:hover,.attack-special:hover,.heal:hover,.give-up:hover,.initialize:hover{
+    transform: scale(1.05);
+}
+.attack{
+    background-color: red;
+}
+.attack-special{
+    background-color: #daa520;
+}
+.heal{
+    background-color: green;
+}
+.give-up{
+    background-color: grey;
+}
+.initialize{
+    background-color: rgb(88, 88, 255);
+}
+/*Logs*/
+.logs{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logs ul{
+    width: 100%;
+}
+.log-player, .log-monster,.log-player-heal{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    margin: 10px;
+}
+.log-player{
+    background-color: rgba(11, 50, 177, 0.548);
+}
+.log-monster{
+    background-color: rgba(190, 3, 3, 0.568);
+}
+.log-player-heal{
+    background-color: rgba(0, 128, 0, 0.541);
+}

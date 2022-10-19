@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Matador de monstros</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="players">
+            <div class="player">
+                <h1 class="player-title">Jogador</h1>
+                <div class="player-life-bar">
+                    <div class="player-life" :class="{danger : playerLife<30}" :style="{width: playerLife + '%'}">
+                    </div>
+                    <p class="monster-life-percent">{{playerLife}}%</p>
+                </div>
+            </div>
+            <div class="monster">
+                <h1 class="monster-title">Monstro</h1>
+                <div class="monster-life-bar">
+                    <div class="monster-life" :class="{danger : monsterLife<30}" :style="{width :monsterLife + '%'}">
+                    </div>
+                    <p class="monster-life-percent">{{monsterLife}}%</p>
+                </div>
+            </div>
+        </div>
+        <template v-if="monsterLife==0||playerLife==0">
+            <div class="result">
+                <p class="tied" v-if="monsterLife==0 && playerLife==0"> Empate :)</p>
+                <p class="winner" v-else-if="monsterLife==0">Você Ganhou ;)</p>
+                <p class="loser" v-else-if="playerLife==0">Você Perdeu :(</p>
+            </div>
+        </template>
+        <div class="buttons">
+            <template v-if="running">
+                <button class="attack" @click="attack(false)">Ataque</button>
+                <button class="attack-special" @click="attack(true)">Ataque especial</button>
+                <button class="heal" @click="heal()">Curar</button>
+                <button class="give-up" @click="giveUp()">Desistir</button>
+            </template>
+            <button class="initialize" @click="startGame()" v-else>Iniciar Jogo</button>
+        </div>
+        <div class="logs">
+            <ul>
+                <li v-for="log in logs" :class="log.cls">{{log.text}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+
+</html>
